@@ -1,24 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Likebuttonsmall from './../../icons/Likebuttonsmall';
 import Korzinkasmall from './../../icons/Korzinkasmall';
-import { request } from '../../config/request';
 import Slider from "react-slick";
+import { useGetlaptop } from './service/query/useGetlaptop';
 
 const Laptop = () => {
-    const [data,setData] = React.useState([])
-
-    useEffect(()=>{
-        const fetchData = async ()=>{
-            try{
-                const res = await request.get("/laptop");
-                setData(res.data)
-            }
-            catch(error){
-                console.log(error);
-            }
-        }
-        fetchData();
-    },[])
+    const {data}= useGetlaptop()
 
 
     const settings = {

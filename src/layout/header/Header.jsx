@@ -4,7 +4,7 @@ import Headerlogoicon from './../../icons/Headerlogoicon';
 import Userloginicon from './../../icons/Userloginicon';
 import Likebutton from './../../icons/Likebutton';
 import Korzinkaicon from './../../icons/Korzinkaicon';
-import BasicModal from './../../components/Modalbutton';
+import BasicModal from './../../components/ModalCatalogbutton';
 
 const Header = () => {
   return (

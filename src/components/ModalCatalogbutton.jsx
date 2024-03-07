@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import Catalogicon from './../icons/Catalogicon';
+import Catalogicon from '../icons/Catalogicon';
+import { useGetcategory } from './../pages/Homepage/service/query/useGetcategory';
+import { Link } from 'react-router-dom';
 
 const style = {
   position: 'absolute',
@@ -17,6 +17,8 @@ const style = {
 };
 
 export default function BasicModal() {
+
+  const { data } = useGetcategory();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -31,12 +33,15 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <div className='grid grid-cols-3 gap-5 w-[60vw] h-[60vh]'>
+          {data?.map((item)=> <div className='cursor-pointer'  key={item.id}>
+          <div className="flex bg-[#F6F6F6] items-center justify-between px-3  mx-2 h-[25vh]">
+            <div><img className="object-scale-down " src={item.img}  /></div>
+            <div><p className="text-[#333333] font-[500] text-lg">{item.title}</p></div>
+          </div>
+          
+          </div>)}
+          </div>
         </Box>
       </Modal>
     </div>

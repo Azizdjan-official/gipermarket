@@ -1,22 +1,10 @@
-import React, { useEffect } from 'react'
-import { request } from '../../config/request';
+import React from 'react'
+import { useGetaction } from './service/query/useGetaction';
 
 const Action = () => {
 
-    const [data,setData] = React.useState([])
+    const {data} = useGetaction();
 
-    useEffect(()=>{
-        const fetchData = async ()=>{
-            try{
-                const res = await request.get("/action");
-                setData(res.data)
-            }
-            catch(error){
-                console.log(error);
-            }
-        };
-        fetchData()
-    },[])
   return (
     <div className='bg-[#FEEE00] flex flex-col px-6 py-4 gap-4'>
         <h1 className='text-[#281800] font-[600] text-2xl'>Акции</h1>

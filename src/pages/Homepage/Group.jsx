@@ -1,23 +1,12 @@
 import React, { useEffect } from 'react'
 import { request } from '../../config/request';
+import { useGetphone } from './service/query/useGetphone';
+import { useGetlaptop } from './service/query/useGetlaptop';
 
 const Group = () => {
-    const [data,setData] = React.useState([]);
-    const [datas,setDatas] = React.useState([]);
-    useEffect(()=>{
-        const fetchData = async()=>{
-            try{
-                const res = await request.get("/phone");
-                const response = await request.get("/laptop");
-                setData(res.data)
-                setDatas(response.data)
-            }
-            catch(error){
-                console.log(error);
-            }
-        }
-        fetchData()
-    })
+  const {data}= useGetphone();
+  const {data:datas} = useGetlaptop()
+    
   return (
     <div className='grid grid-cols-3'>
       <div>

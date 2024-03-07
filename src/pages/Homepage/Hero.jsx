@@ -1,29 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Slider from "react-slick";
-import { request } from './../../config/request';
+import { useGetbanner } from "./service/query/useGetbanner";
+import { SampleNextArrow, SamplePrevArrow } from "./Arrow";
 
 
 export default function SimpleSlider() {
-    const [data, setData] = React.useState([])
+  const { data } = useGetbanner();
 
-  //   request.get('/banner')
-  // .then(res => {
-  //   console.log(res.data);
-  //   setData(res.data)
-  // });
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await request.get('/banner');
-        setData(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-  
 
   var settings = {
     dots: true,
@@ -31,12 +14,14 @@ export default function SimpleSlider() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    nextArrow:<SampleNextArrow/>,
+    prevArrow:<SamplePrevArrow/>,
   };
   return (
     <div className="py-4">
-      <Slider className="w-full " {...settings}>
-      {data?.map((item)=> <div key={item.image}><img className="w-full" src={item.image} /></div>)}
-    </Slider>
+      <Slider className="w-full" {...settings}>
+        {data?.map((item, id) => <div key={id}><img className="w-full" src={item.image} /></div>)}
+      </Slider>
     </div>
   );
 }

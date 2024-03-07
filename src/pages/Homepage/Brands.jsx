@@ -1,21 +1,9 @@
-import React, { useEffect } from 'react'
-import { request } from '../../config/request'
+import React from 'react'
+import { useGetbrand } from './service/query/useGetbrands'
 
 const Brands = () => {
-    const [data,setData] = React.useState([])
+    const {data}= useGetbrand();
 
-    useEffect(()=>{
-        const fetchData = async()=>{
-            try{
-                const res = await request.get("/brand");
-                setData(res.data)
-            }
-            catch(error){
-                console.log(error);
-            }
-        };
-        fetchData()
-    },[])
   return (
     <div className='px-8'>
       <h1 className='text-[#333333] font-[600] text-2xl my-4'>Популярные бренды</h1>

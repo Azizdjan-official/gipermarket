@@ -1,12 +1,17 @@
 import React from 'react'
 import Phonelogoicon from './../../icons/Phonelogoicon';
 import Headerlogoicon from './../../icons/Headerlogoicon';
-import Userloginicon from './../../icons/Userloginicon';
 import Likebutton from './../../icons/Likebutton';
 import Korzinkaicon from './../../icons/Korzinkaicon';
 import BasicModal from './../../components/ModalCatalogbutton';
+import UserModal from '../../components/UserModal';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
+  const handleButtonClick  = () =>{
+    navigate('/');
+  }
   return (
     <div>
       <div className='flex justify-end items-end bg-[#FCFCFC] py-2 px-12'>
@@ -21,16 +26,13 @@ const Header = () => {
         </div>
       </div>
       <div className='flex justify-between px-12'>
-        <div><Headerlogoicon/></div>
+        <div className='cursor-pointer' onClick={handleButtonClick}><Headerlogoicon/></div>
         <button ><BasicModal/></button>
         <form  className='w-[50%]'>
             <input className='outline-none px-4 py-3 border border-[#857372] w-full' type="text" placeholder='Поиск' />
         </form>
         <div className='flex gap-7'>
-            <button className='flex flex-col items-center justify-center '>
-                <Userloginicon/>
-                <p className='text-[#211A1A] font-[400] text-md'>Войти</p>
-            </button>
+            <UserModal/>
             <button className='flex flex-col items-center justify-center '>
                 <Likebutton/>
                 <p className='text-[#211A1A] font-[400] text-md'>Избранное</p>

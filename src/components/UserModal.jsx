@@ -1,8 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import Catalogicon from '../icons/Catalogicon';
 import { useGetcategory } from './../pages/Homepage/service/query/useGetcategory';
+import Userloginicon from './../icons/Userloginicon';
+import Form from './Form';
 
 const style = {
   position: 'absolute',
@@ -15,7 +16,7 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal() {
+export default function UserModal() {
 
   const { data } = useGetcategory();
   const [open, setOpen] = React.useState(false);
@@ -24,7 +25,12 @@ export default function BasicModal() {
 
   return (
     <div>
-      <button className='flex items-center justify-center bg-[#FEEE00] px-3 py-2 ' onClick={handleOpen}> <Catalogicon/> &nbsp; Каталог</button>
+      {/* <button className='flex items-center justify-center bg-[#FEEE00] px-3 py-2 ' onClick={handleOpen}> <Catalogicon/> &nbsp; Каталог</button> */}
+      <button onClick={handleOpen} className='flex flex-col items-center justify-center '>
+                <Userloginicon/>
+                <p className='text-[#211A1A] font-[400] text-md'>Войти</p>
+                
+            </button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -32,15 +38,7 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div className='grid grid-cols-3 gap-5 w-[60vw] h-[60vh]'>
-          {data?.map((item)=> <div className='cursor-pointer'  key={item.id}>
-          <div className="flex bg-[#F6F6F6] items-center justify-between px-3  mx-2 h-[25vh]">
-            <div><img className="object-scale-down " src={item.img}  /></div>
-            <div><p className="text-[#333333] font-[500] text-lg">{item.title}</p></div>
-          </div>
-          
-          </div>)}
-          </div>
+          <Form/>
         </Box>
       </Modal>
     </div>

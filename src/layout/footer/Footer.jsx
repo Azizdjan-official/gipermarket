@@ -5,6 +5,7 @@ import Odnoklassniki from './../../icons/Odnoklassniki';
 import Vkmbot from './../../icons/Vkmbot';
 import Youtube from './../../icons/Youtube';
 import Instagram from './../../icons/Instagram';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -28,7 +29,7 @@ const Footer = () => {
         <div className='flex flex-col gap-3'>
             <p className='text-[#333333] font-[500] text-sm'>Условия обмена и возврата</p>
             <p className='text-[#333333] font-[500] text-sm'>Каталог</p>
-            <p className='text-[#333333] font-[500] text-sm'>О компании</p>
+            <Link to="/about" className='text-[#333333] font-[500] text-sm'>О компании</Link>
             <p className='text-[#333333] font-[500] text-sm'>Контакты</p>
             <p className='text-[#333333] font-[500] text-sm'>Доставка</p>
             <p className='text-[#333333] font-[500] text-sm'>Оплата</p>

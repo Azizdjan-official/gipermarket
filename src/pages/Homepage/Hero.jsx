@@ -9,7 +9,6 @@ export default function SimpleSlider() {
 
 
   var settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -18,9 +17,9 @@ export default function SimpleSlider() {
     prevArrow:<SamplePrevArrow/>,
   };
   return (
-    <div className="py-4">
-      <Slider className="w-full" {...settings}>
-        {data?.map((item, id) => <div key={id}><img className="w-full" src={item.image} /></div>)}
+    <div className="h-[70vh] border bg-slate-200">
+      <Slider className="w-full h-full" {...settings}>
+        {data?.map((item, id) => <div key={id}><img className="w-full h-[100%]" src={item.img} /></div>)}
       </Slider>
     </div>
   );

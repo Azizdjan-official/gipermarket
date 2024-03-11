@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { useGetcategory } from './../pages/Homepage/service/query/useGetcategory';
 import Userloginicon from './../icons/Userloginicon';
 import Form from './Form';
 
@@ -14,11 +13,12 @@ const style = {
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  width: 500,
+  height: 530,
 };
 
 export default function UserModal() {
 
-  const { data } = useGetcategory();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

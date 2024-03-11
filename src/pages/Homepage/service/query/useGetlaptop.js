@@ -6,7 +6,7 @@ import { request } from './../../../../config/request';
 
 export const useGetlaptop = () => {
   return useQuery({
-    queryKey:["laptop"],
-    queryFn:() => request.get("/laptop").then((res) => res.data)
+    queryKey:["laptops"],
+    queryFn:() => request.get("/laptops").then((res) => res.data)
   })
 }

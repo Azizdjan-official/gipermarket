@@ -15,7 +15,7 @@ const Group = () => {
             <div><img className='w-[140px]  h-[140px]' src={item.img} /></div>
             <div className='flex flex-col justify-between  w-[60%]'>
                 <h1 className='text-[#000000] font-[400] text-lg '>{item.title}</h1>
-                <p className='text-[#000000] font-[600] text-lg'>{item.price} $</p>
+                <p className='text-[#000000] font-[600] text-lg'>{item.price} so'm</p>
             </div>
         </div>)}
       </div>
@@ -35,7 +35,7 @@ const Group = () => {
             <div><img className='w-[140px]  h-[140px]' src={item.img} /></div>
             <div className='flex flex-col justify-between  w-[60%]'>
                 <h1 className='text-[#000000] font-[400] text-lg '>{item.title}</h1>
-                <p className='text-[#000000] font-[600] text-lg'>{item.price} $</p>
+                <p className='text-[#000000] font-[600] text-lg'>{item.price} so'm</p>
             </div>
         </div>)}
       </div>

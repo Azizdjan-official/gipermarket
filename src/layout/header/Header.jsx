@@ -25,7 +25,7 @@ const Header = () => {
             </span>
         </div>
       </div>
-      <div className='flex justify-between px-12'>
+      <div className='flex justify-between items-center  px-12'>
         <div className='cursor-pointer' onClick={handleButtonClick}><Headerlogoicon/></div>
         <button ><BasicModal/></button>
         <form  className='w-[50%]'>

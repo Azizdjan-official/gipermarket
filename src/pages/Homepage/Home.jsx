@@ -6,8 +6,11 @@ import Smartphones from './Smartphones';
 import Laptop from './Laptop';
 import Brands from './Brands';
 import Group from './Group';
+import useGetAllProducts from './service/query/useGetallProducts';
 
 const Home = () => {
+   const {data} = useGetAllProducts()
+   
   return (
     <div>
       <SimpleSlider/>

@@ -9,7 +9,7 @@ const Brands = () => {
       <h1 className='text-[#333333] font-[600] text-2xl my-4'>Популярные бренды</h1>
       <div className='grid grid-cols-7 gap-2'>
         
-        {data?.map((item)=> <div className='bg-[#F8F8F8] flex items-center justify-center h-[12vh] cursor-pointer' key={item.id}><img className='object-scale-down' src={item.image} alt="" /></div>)}
+        {data?.map((item)=> <div className='bg-[#F8F8F8] flex items-center justify-center h-[12vh] cursor-pointer p-4' key={item.id}><img className='object-scale-down w-[100%] h-[100%]' src={item.img}  /></div>)}
       </div>
     </div>
   )
